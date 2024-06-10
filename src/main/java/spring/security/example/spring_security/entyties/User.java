@@ -4,6 +4,7 @@ package spring.security.example.spring_security.entyties;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,12 +31,13 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore//we are ignoring this field for not return in the register
     private String password;
 
     private boolean enabled;
 
     @Transient
-    private boolean admin;
+    private Boolean admin = false;
 
     
 
@@ -100,11 +102,11 @@ public class User {
         this.roles = roles;
     }
 
-    public boolean isAdmin() {
+    public Boolean isAdmin() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(Boolean admin) {
         this.admin = admin;
     }
 
