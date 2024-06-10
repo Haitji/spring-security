@@ -29,11 +29,13 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signup")
     public ResponseEntity<User> registerUser(@RequestBody UserDto userDto) {
         
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.registUser(userDto));
     }
+
+    
     
     
 

@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User registUser(UserDto userDto) {
         Set<Role> roles = new HashSet<>();
-        Role role = roleRepository.findByName("ROLE_USER");
+        Role role = roleRepository.findByName("ROLE_USER");//We get a role from database to avoid duplication
         roles.add(role);
         User user = userMapper.userDtoToUser(userDto);
         user.setEnabled(true);
