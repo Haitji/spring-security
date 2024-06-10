@@ -44,6 +44,10 @@ public class UserServiceImpl implements UserService{
         Set<Role> roles = new HashSet<>();
         Role role = roleRepository.findByName("ROLE_USER");//We get a role from database to avoid duplication
         roles.add(role);
+        if(userDto.isAdmin()){
+            Role role2 = roleRepository.findByName("ROLE_ADMIN");//We get a role from database to avoid duplication
+            roles.add(role2);
+        }
         User user = userMapper.userDtoToUser(userDto);
         user.setEnabled(true);
         user.setRoles(roles);
