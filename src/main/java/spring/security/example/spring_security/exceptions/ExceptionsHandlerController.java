@@ -19,4 +19,14 @@ public class ExceptionsHandlerController {
         return new ResponseEntity<>(body,HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<?> handleProductNotFoundException(ProductNotFoundException ex) {
+
+        Map<String,Object> body = new HashMap<>();
+        body.put("message", ex.getMessage());
+        body.put("status", HttpStatus.NOT_FOUND.value());
+
+        return new ResponseEntity<>(body,HttpStatus.NOT_FOUND);
+    }
+
 }

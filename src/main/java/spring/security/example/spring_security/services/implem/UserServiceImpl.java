@@ -1,4 +1,4 @@
-package spring.security.example.spring_security.services;
+package spring.security.example.spring_security.services.implem;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -16,6 +16,7 @@ import spring.security.example.spring_security.exceptions.UserAlreadyExistsExcep
 import spring.security.example.spring_security.mappers.UserMapper;
 import spring.security.example.spring_security.repositories.RoleRepository;
 import spring.security.example.spring_security.repositories.UserRepository;
+import spring.security.example.spring_security.services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
